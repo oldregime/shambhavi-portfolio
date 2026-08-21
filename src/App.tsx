@@ -46,25 +46,25 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#fcf8f2] text-[#1f1614] notebook-container">
+    <div className="relative h-screen max-h-screen overflow-hidden flex flex-col justify-between bg-[#fcf8f2] text-[#1f1614] notebook-container select-none">
       {/* Custom Kitty Paw Cursor (Desktop) */}
       <KittyPawCursor />
 
-      {/* Interactive Runaway Kitty (Try to Catch Me!) */}
+      {/* Interactive Runaway Kitty */}
       <RunningKitty />
 
-      {/* Left Spiral Binding Rings (Desktop) & Responsive Navigation */}
+      {/* Left Spiral Binding Rings (Desktop) & Navigation */}
       <SketchbookNav activeSection={activeSection} setActiveSection={setActiveSection} />
 
-      {/* Main Notebook Pages Container: Desktop left padding for rings, Mobile bottom padding for dock */}
-      <main className="md:pl-40 px-4 sm:px-8 max-w-6xl mx-auto py-6 sm:py-8 pb-28 md:pb-8">
-        <div key={activeSection} className="page-3d-active">
+      {/* Main Viewport Container: 100% Zero-Scroll on 1920x1080 */}
+      <main className="flex-1 md:pl-36 lg:pl-40 px-4 sm:px-8 max-w-6xl w-full mx-auto flex flex-col justify-center overflow-hidden py-2 sm:py-3">
+        <div key={activeSection} className="page-3d-active h-full">
           {renderActivePage()}
         </div>
       </main>
 
-      {/* Footer */}
-      <div className="md:pl-40 pb-24 md:pb-0">
+      {/* Compact Zero-Scroll Footer */}
+      <div className="md:pl-36 lg:pl-40 shrink-0">
         <SketchFooter />
       </div>
     </div>

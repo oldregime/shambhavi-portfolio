@@ -30,33 +30,28 @@ export const SketchFooter: React.FC = () => {
   };
 
   return (
-    <footer className="relative z-10 border-t-2 border-[#3f2a1e]/20 bg-[#f5ebd9]/60 py-12 px-6 sm:px-12 text-[#6a524a]">
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-        
-        <div>
-          <p className="font-hand text-xl font-bold text-[#2b1f1d]">
-            {PERSONAL_INFO.name} • The Sketchbook Portfolio
-          </p>
-          <p className="font-sketch text-xs text-[#6a524a]">
-            Handcrafted with React, TypeScript & Tailwind CSS • VIT '26
-          </p>
-        </div>
+    <footer className="h-10 border-t border-[#3f2a1e]/15 bg-[#f5ebd9]/70 px-4 sm:px-8 flex items-center justify-between text-xs text-[#6a524a] shrink-0">
+      <div className="flex items-center gap-2">
+        <span className="font-hand text-base font-bold text-[#1a110e]">
+          {PERSONAL_INFO.name} • Sketchbook Portfolio
+        </span>
+        <span className="hidden sm:inline text-[#6a524a] font-sketch">
+          • Handcrafted with React & Vite
+        </span>
+      </div>
 
-        <div className="flex items-center gap-4">
-          <span className="font-mono text-xs px-3 py-1 rounded-full bg-[#ede0ca] border border-[#3f2a1e]/30 text-[#2b1f1d]">
-            🕒 {time}
-          </span>
+      <div className="flex items-center gap-3">
+        <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-[#ede0ca] border border-[#3f2a1e]/20 text-[#1a110e]">
+          🕒 {time}
+        </span>
 
-          <button
-            onClick={scrollToTop}
-            className="p-2 rounded-full bg-[#fffef9] border-2 border-[#3f2a1e] hover:bg-[#ede0ca] text-[#2b1f1d] transition-transform hover:scale-110 shadow-sm"
-            style={{ filter: 'url(#sketch-wobble)' }}
-            title="Back to Top"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
-        </div>
-
+        <button
+          onClick={scrollToTop}
+          className="p-1 rounded-full bg-[#fffef9] border border-[#3f2a1e] hover:bg-[#ede0ca] text-[#1a110e] transition shadow-xs"
+          title="Back to Top"
+        >
+          <ArrowUp className="w-3.5 h-3.5" />
+        </button>
       </div>
     </footer>
   );

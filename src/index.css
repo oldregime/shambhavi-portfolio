@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
   
   body {
@@ -10,22 +13,29 @@
     color: #1f1614;
     background-image: radial-gradient(#dfd1bc 0.8px, transparent 0.8px);
     background-size: 26px 26px;
-    overflow-x: hidden;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Allow smooth scrolling on small screens only */
+  @media (max-width: 1023px) {
+    html, body {
+      overflow-y: auto;
+      height: auto;
+      min-height: 100%;
+    }
   }
 
   /* Custom smooth scrollbar */
   ::-webkit-scrollbar {
-    width: 9px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
     background: #f5ebd9;
   }
   ::-webkit-scrollbar-thumb {
     background: #c2ad91;
-    border-radius: 5px;
-    border: 2px solid #f5ebd9;
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #8b552d;
@@ -39,35 +49,31 @@
 
 .page-3d-active {
   transform-origin: left center;
-  animation: pageTurnIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: pageTurnIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   backface-visibility: hidden;
+  height: 100%;
 }
 
 @keyframes pageTurnIn {
   0% {
     opacity: 0;
-    transform: rotateY(-80deg) scale(0.97);
-    filter: drop-shadow(-15px 10px 20px rgba(0,0,0,0.18));
+    transform: rotateY(-70deg) scale(0.98);
+    filter: drop-shadow(-15px 10px 20px rgba(0,0,0,0.15));
   }
   70% {
     opacity: 0.98;
-    transform: rotateY(3deg) scale(1.005);
+    transform: rotateY(2deg) scale(1.002);
   }
   100% {
     opacity: 1;
     transform: rotateY(0deg) scale(1);
-    filter: drop-shadow(0 10px 25px rgba(63, 42, 30, 0.08));
+    filter: drop-shadow(0 8px 20px rgba(63, 42, 30, 0.06));
   }
 }
 
 .sketch-border {
   border: 2px solid #3f2a1e;
   filter: url(#sketch-wobble);
-}
-
-.sketch-border-strong {
-  border: 2.5px solid #3f2a1e;
-  filter: url(#sketch-wobble-strong);
 }
 
 .font-hand {
@@ -84,17 +90,7 @@
 
 .tape {
   background: rgba(245, 234, 217, 0.85);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
   backdrop-filter: blur(2px);
   border: 1px dashed rgba(63, 42, 30, 0.25);
-}
-
-.notebook-lines {
-  background-image: repeating-linear-gradient(
-    transparent,
-    transparent 35px,
-    #e8dcc8 35px,
-    #e8dcc8 36px
-  );
-  line-height: 36px;
 }
