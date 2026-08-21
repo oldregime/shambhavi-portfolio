@@ -4,14 +4,21 @@
   html, body {
     margin: 0;
     padding: 0;
-    background-color: #fbf7ef;
+    background-color: #faf7ee;
     color: #1f1614;
+    
+    /* Authentic College-Ruled Notebook Lines (Cyan/Blue horizontal lines every 28px) */
     background-image: 
-      linear-gradient(to right, rgba(63, 42, 30, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(63, 42, 30, 0.05) 1px, transparent 1px);
-    background-size: 22px 22px;
+      repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 27px,
+        rgba(93, 138, 168, 0.24) 27px,
+        rgba(93, 138, 168, 0.24) 28px
+      );
+    background-size: 100% 28px;
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 28px; /* Perfectly aligned to college ruled line height */
   }
 
   /* Desktop Viewport Containment (>= 1024px) */
@@ -110,20 +117,64 @@
   border: 1px dashed rgba(63, 42, 30, 0.25);
 }
 
-/* Red Margin Line on Desktop */
-.notebook-margin-line {
+/* Authentic College Ruled Notebook Left Margin Line (Double Red Line) */
+.college-ruled-margin-line {
   position: fixed;
-  left: 140px;
+  left: 145px;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background-color: rgba(217, 107, 82, 0.22);
+  width: 3px;
+  border-left: 1.5px solid rgba(224, 86, 76, 0.45);
+  border-right: 1.5px solid rgba(224, 86, 76, 0.25);
   pointer-events: none;
   z-index: 25;
 }
 
+/* 3 Hole Punch Holes down the paper */
+.binder-hole-1 {
+  position: fixed;
+  left: 45px;
+  top: 15%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ded5c2;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.35), 0 1px 1px rgba(255,255,255,0.7);
+  pointer-events: none;
+  z-index: 30;
+}
+
+.binder-hole-2 {
+  position: fixed;
+  left: 45px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ded5c2;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.35), 0 1px 1px rgba(255,255,255,0.7);
+  pointer-events: none;
+  z-index: 30;
+}
+
+.binder-hole-3 {
+  position: fixed;
+  left: 45px;
+  top: 85%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ded5c2;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.35), 0 1px 1px rgba(255,255,255,0.7);
+  pointer-events: none;
+  z-index: 30;
+}
+
 @media (max-width: 1023px) {
-  .notebook-margin-line {
+  .college-ruled-margin-line,
+  .binder-hole-1,
+  .binder-hole-2,
+  .binder-hole-3 {
     display: none;
   }
 }
