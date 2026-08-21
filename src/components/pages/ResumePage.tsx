@@ -20,7 +20,7 @@ export const ResumePage: React.FC<PageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="h-full flex flex-col justify-between py-2 sm:py-3 space-y-3 sm:space-y-4 overflow-hidden">
+    <div className="lg:h-full flex flex-col justify-between py-2 sm:py-3 space-y-4 lg:space-y-2.5 overflow-y-visible lg:overflow-hidden">
       
       <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-2 shrink-0">
         <button
@@ -34,7 +34,7 @@ export const ResumePage: React.FC<PageProps> = ({ onNavigate }) => {
         </span>
       </div>
 
-      <div className="p-5 sm:p-6 rounded-3xl bg-[#fffef9] border-2 border-[#3f2a1e] shadow-lg space-y-4 relative flex-1 my-auto flex flex-col justify-between" style={{ filter: 'url(#sketch-wobble)' }}>
+      <div className="p-5 sm:p-6 rounded-3xl bg-[#fffef9] border-2 border-[#3f2a1e] shadow-lg space-y-4 relative lg:flex-1 lg:my-auto flex flex-col justify-between" style={{ filter: 'url(#sketch-wobble)' }}>
         <div className="absolute -top-3.5 left-12 w-28 h-6 tape rounded-sm" />
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#ede0ca] pb-3">
@@ -85,17 +85,17 @@ export const ResumePage: React.FC<PageProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between pt-2 border-t border-[#3f2a1e]/15 shrink-0">
+      <div className="flex items-center justify-between pt-3 lg:pt-1 border-t border-[#3f2a1e]/15 shrink-0">
         <button
           onClick={() => onNavigate('skills')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Prev: Skills
         </button>
 
         <button
           onClick={() => onNavigate('contact')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#d96b52] hover:bg-[#c65b43] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#d96b52] hover:bg-[#c65b43] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
         >
           <span>Next: Contact Postbox</span>
           <ArrowRight className="w-3.5 h-3.5" />

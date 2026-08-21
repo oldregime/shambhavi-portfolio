@@ -25,7 +25,6 @@ interface PageProps {
 }
 
 export const SkillsPage: React.FC<PageProps> = ({ onNavigate }) => {
-  // Map skill names to icons
   const getSkillIcon = (name: string) => {
     switch (name) {
       case 'AWS EC2':
@@ -70,9 +69,8 @@ export const SkillsPage: React.FC<PageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="h-full flex flex-col justify-between py-2 sm:py-3 space-y-3 sm:space-y-4 overflow-hidden">
+    <div className="lg:h-full flex flex-col justify-between py-2 sm:py-3 space-y-4 lg:space-y-2.5 overflow-y-visible lg:overflow-hidden">
       
-      {/* Top Header */}
       <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-2 shrink-0">
         <button
           onClick={() => onNavigate('leetcode')}
@@ -85,12 +83,11 @@ export const SkillsPage: React.FC<PageProps> = ({ onNavigate }) => {
         </span>
       </div>
 
-      {/* 2x2 Grid of Categorized Icon Badges (No percentage bars) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 flex-1 my-auto overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:flex-1 lg:my-auto">
         {SKILL_CATEGORIES.map((cat) => (
           <div
             key={cat.category}
-            className={`p-3.5 sm:p-4 rounded-2xl ${cat.bg} border-2 border-[#3f2a1e] shadow-xs space-y-2.5 relative flex flex-col justify-between overflow-hidden`}
+            className={`p-4 rounded-2xl ${cat.bg} border-2 border-[#3f2a1e] shadow-xs space-y-2.5 relative flex flex-col justify-between`}
             style={{ filter: 'url(#sketch-wobble)' }}
           >
             <h3 className="text-sm sm:text-base font-bold text-[#1a110e] font-display border-b border-[#3f2a1e]/15 pb-1.5 flex items-center justify-between">
@@ -98,7 +95,6 @@ export const SkillsPage: React.FC<PageProps> = ({ onNavigate }) => {
               <span className="font-hand text-xs text-[#6a524a]">{cat.skills.length} tools</span>
             </h3>
 
-            {/* Icon Badges Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {cat.skills.map((s) => (
                 <div
@@ -125,7 +121,6 @@ export const SkillsPage: React.FC<PageProps> = ({ onNavigate }) => {
         ))}
       </div>
 
-      {/* Horizontal Strip of Certifications */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 shrink-0">
         {CERTIFICATIONS.map((cert) => (
           <div
@@ -143,18 +138,17 @@ export const SkillsPage: React.FC<PageProps> = ({ onNavigate }) => {
         ))}
       </div>
 
-      {/* Bottom Nav */}
-      <div className="flex items-center justify-between pt-2 border-t border-[#3f2a1e]/15 shrink-0">
+      <div className="flex items-center justify-between pt-3 lg:pt-1 border-t border-[#3f2a1e]/15 shrink-0">
         <button
           onClick={() => onNavigate('leetcode')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Prev: 100 Days
         </button>
 
         <button
           onClick={() => onNavigate('resume')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#5d8aa8] hover:bg-[#4a728e] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#5d8aa8] hover:bg-[#4a728e] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
         >
           <span>Next: Resume</span>
           <ArrowRight className="w-3.5 h-3.5" />

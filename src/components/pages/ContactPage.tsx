@@ -40,7 +40,7 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="h-full flex flex-col justify-between py-2 sm:py-3 space-y-3 sm:space-y-4 overflow-hidden">
+    <div className="lg:h-full flex flex-col justify-between py-2 sm:py-3 space-y-4 lg:space-y-2.5 overflow-y-visible lg:overflow-hidden">
       
       <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-2 shrink-0">
         <button
@@ -54,7 +54,7 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center flex-1 my-auto overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center lg:flex-1 lg:my-auto">
         
         {/* Postbox Card */}
         <div className="md:col-span-5 space-y-3">
@@ -171,10 +171,10 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
 
       </div>
 
-      <div className="flex items-center justify-start pt-2 border-t border-[#3f2a1e]/15 shrink-0">
+      <div className="flex items-center justify-start pt-3 lg:pt-1 border-t border-[#3f2a1e]/15 shrink-0">
         <button
           onClick={() => onNavigate('home')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Cover
         </button>

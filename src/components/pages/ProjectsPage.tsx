@@ -20,10 +20,10 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
     : PROJECTS.filter((p) => p.category === activeCat);
 
   return (
-    <div className="h-full flex flex-col justify-between py-2 sm:py-3 space-y-3 sm:space-y-4 overflow-hidden">
+    <div className="lg:h-full flex flex-col justify-between py-2 sm:py-3 space-y-4 lg:space-y-2.5 overflow-y-visible lg:overflow-hidden">
       
-      {/* Top Header */}
-      <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-2 shrink-0">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#3f2a1e]/15 pb-2 shrink-0">
         <div className="flex items-center gap-3">
           <button
             onClick={() => onNavigate('about')}
@@ -36,8 +36,8 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
           </span>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex gap-1.5">
+        {/* Filter Pills */}
+        <div className="flex flex-wrap gap-1.5">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -45,7 +45,7 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
                 playSketchSound('page-flip');
                 setActiveCat(cat);
               }}
-              className={`px-3 py-0.5 rounded-full font-hand text-xs font-bold border border-[#3f2a1e] transition-transform ${
+              className={`px-3 py-1 rounded-full font-hand text-xs font-bold border border-[#3f2a1e] transition-transform ${
                 activeCat === cat
                   ? 'bg-[#e8b042] text-[#1a110e] font-black scale-105'
                   : 'bg-[#fffef9] text-[#6a524a] hover:bg-[#ede0ca]'
@@ -57,27 +57,27 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* 2x2 Grid (Fits strictly inside 1080p viewport) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 flex-1 my-auto overflow-hidden">
+      {/* Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:flex-1 lg:my-auto">
         {filtered.slice(0, 4).map((project) => (
           <div
             key={project.id}
-            className="relative bg-[#fffef9] border-2 border-[#3f2a1e] rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-2 overflow-hidden"
+            className="relative bg-[#fffef9] border-2 border-[#3f2a1e] rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-2"
             style={{ filter: 'url(#sketch-wobble)' }}
           >
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="px-2 py-0.5 rounded-full bg-[#ede0ca] border border-[#3f2a1e] font-hand text-xs font-bold text-[#1a110e]">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#ede0ca] border border-[#3f2a1e] font-hand text-xs font-bold text-[#1a110e]">
                   {project.category}
                 </span>
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-2">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => playSketchSound('pop')}
-                      className="p-1 rounded-full hover:bg-[#ede0ca] text-[#2b1f1d] transition"
+                      className="p-1.5 rounded-full hover:bg-[#ede0ca] text-[#2b1f1d] transition"
                       title="GitHub Repository"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
@@ -89,7 +89,7 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => playSketchSound('pop')}
-                      className="p-1 rounded-full hover:bg-[#ede0ca] text-[#5d8aa8] transition"
+                      className="p-1.5 rounded-full hover:bg-[#ede0ca] text-[#5d8aa8] transition"
                       title="Live Deployment"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -107,12 +107,12 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
                 </p>
               </div>
 
-              <p className="text-xs text-[#2b1d19] line-clamp-2 leading-relaxed font-sans">
+              <p className="text-xs sm:text-sm text-[#2b1d19] leading-relaxed font-sans">
                 {project.description}
               </p>
 
               <div className="flex items-center gap-1.5 font-hand text-xs font-bold text-[#7a9a7b]">
-                <Check className="w-3 h-3 text-[#7a9a7b] stroke-[2.5]" />
+                <Check className="w-3.5 h-3.5 text-[#7a9a7b] stroke-[2.5]" />
                 <span>{project.metrics[0]}</span>
               </div>
             </div>
@@ -120,7 +120,7 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
             <div className="flex items-center justify-between pt-2 border-t border-[#ede0ca]">
               <div className="flex flex-wrap gap-1">
                 {project.tags.slice(0, 3).map((t) => (
-                  <span key={t} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#f5ebd9] border border-[#d9cca8] text-[#2b1d19]">
+                  <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#f5ebd9] border border-[#d9cca8] text-[#2b1d19]">
                     {t}
                   </span>
                 ))}
@@ -131,10 +131,10 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
                   playSketchSound('page-flip');
                   setSelectedProject(project);
                 }}
-                className="py-1 px-2.5 rounded-xl bg-[#5d8aa8]/15 hover:bg-[#5d8aa8]/25 text-xs font-hand font-bold text-[#5d8aa8] flex items-center gap-1 transition"
+                className="py-1 px-3 rounded-xl bg-[#5d8aa8]/15 hover:bg-[#5d8aa8]/25 text-xs font-hand font-bold text-[#5d8aa8] flex items-center gap-1 transition"
               >
                 <span>Blueprint</span>
-                <ArrowUpRight className="w-3 h-3" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
@@ -148,7 +148,7 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
             
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 p-1.5 rounded-full bg-[#ede0ca] text-[#1a110e]"
+              className="absolute top-4 right-4 p-2 rounded-full bg-[#ede0ca] text-[#1a110e]"
             >
               <X className="w-4 h-4" />
             </button>
@@ -188,7 +188,7 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
                   rel="noreferrer"
                   className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#ede0ca] text-xs font-hand font-bold text-[#1a110e] border border-[#3f2a1e]"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" /> Source
+                  <GithubIcon className="w-3.5 h-3.5" /> Source Code
                 </a>
               )}
               {selectedProject.liveUrl && (
@@ -198,7 +198,7 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
                   rel="noreferrer"
                   className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#e8b042] text-xs font-hand font-bold text-[#1a110e] border border-[#3f2a1e]"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" /> Launch Live
+                  <ExternalLink className="w-3.5 h-3.5" /> Launch Live App
                 </a>
               )}
             </div>
@@ -208,17 +208,17 @@ export const ProjectsPage: React.FC<PageProps> = ({ onNavigate }) => {
       )}
 
       {/* Bottom Nav */}
-      <div className="flex items-center justify-between pt-2 border-t border-[#3f2a1e]/15 shrink-0">
+      <div className="flex items-center justify-between pt-3 lg:pt-1 border-t border-[#3f2a1e]/15 shrink-0">
         <button
           onClick={() => onNavigate('about')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Prev: About
         </button>
 
         <button
           onClick={() => onNavigate('experience')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#5d8aa8] hover:bg-[#4a728e] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#5d8aa8] hover:bg-[#4a728e] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
         >
           <span>Next: Experience</span>
           <ArrowRight className="w-3.5 h-3.5" />

@@ -8,7 +8,7 @@ interface PageProps {
 
 export const LeetCodePage: React.FC<PageProps> = ({ onNavigate }) => {
   return (
-    <div className="h-full flex flex-col justify-between py-2 sm:py-3 space-y-3 sm:space-y-4 overflow-hidden">
+    <div className="lg:h-full flex flex-col justify-between py-2 sm:py-3 space-y-4 lg:space-y-2.5 overflow-y-visible lg:overflow-hidden">
       
       <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-2 shrink-0">
         <button
@@ -22,12 +22,11 @@ export const LeetCodePage: React.FC<PageProps> = ({ onNavigate }) => {
         </span>
       </div>
 
-      {/* 2x2 Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 flex-1 my-auto overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:flex-1 lg:my-auto">
         {LEETCODE_MILESTONES.map((item) => (
           <div
             key={item.day}
-            className="p-3.5 sm:p-4 rounded-2xl bg-[#fffef9] border-2 border-[#3f2a1e] shadow-xs space-y-2 relative flex flex-col justify-between overflow-hidden"
+            className="p-4 rounded-2xl bg-[#fffef9] border-2 border-[#3f2a1e] shadow-xs space-y-2.5 relative flex flex-col justify-between"
             style={{ filter: 'url(#sketch-wobble)' }}
           >
             <div className="space-y-1.5">
@@ -44,16 +43,16 @@ export const LeetCodePage: React.FC<PageProps> = ({ onNavigate }) => {
                 <h3 className="text-base font-bold text-[#1a110e] font-display">
                   {item.problem}
                 </h3>
-                <p className="text-xs text-[#40302b] line-clamp-1 font-sans">
+                <p className="text-xs text-[#40302b] font-sans">
                   {item.description}
                 </p>
               </div>
 
-              <div className="p-2 rounded-xl bg-[#f5ebd9] border border-[#d9cca8] space-y-0.5">
+              <div className="p-2.5 rounded-xl bg-[#f5ebd9] border border-[#d9cca8] space-y-1">
                 <p className="font-hand text-xs font-bold text-[#5d8aa8] flex items-center gap-1">
                   <Zap className="w-3 h-3" /> Approach:
                 </p>
-                <p className="text-xs text-[#1a110e] font-mono line-clamp-2">
+                <p className="text-xs text-[#1a110e] font-mono leading-relaxed">
                   {item.approach}
                 </p>
               </div>
@@ -61,7 +60,7 @@ export const LeetCodePage: React.FC<PageProps> = ({ onNavigate }) => {
 
             <div className="flex flex-wrap gap-1 pt-1">
               {item.tags.map((t) => (
-                <span key={t} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#ede0ca] text-[#2b1d19]">
+                <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#ede0ca] text-[#2b1d19]">
                   {t}
                 </span>
               ))}
@@ -70,17 +69,17 @@ export const LeetCodePage: React.FC<PageProps> = ({ onNavigate }) => {
         ))}
       </div>
 
-      <div className="flex items-center justify-between pt-2 border-t border-[#3f2a1e]/15 shrink-0">
+      <div className="flex items-center justify-between pt-3 lg:pt-1 border-t border-[#3f2a1e]/15 shrink-0">
         <button
           onClick={() => onNavigate('experience')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Prev: Experience
         </button>
 
         <button
           onClick={() => onNavigate('skills')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#5d8aa8] hover:bg-[#4a728e] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#5d8aa8] hover:bg-[#4a728e] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
         >
           <span>Next: Skills</span>
           <ArrowRight className="w-3.5 h-3.5" />

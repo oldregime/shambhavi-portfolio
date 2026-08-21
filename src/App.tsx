@@ -46,31 +46,31 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative h-screen max-h-screen overflow-hidden flex flex-col justify-center bg-[#fbf7ef] text-[#1f1614] notebook-container select-none">
-      {/* Authentic Red Margin Line of Notebook Page */}
+    <div className="relative min-h-screen lg:h-screen lg:max-h-screen lg:overflow-hidden flex flex-col justify-between bg-[#fbf7ef] text-[#1f1614] notebook-container select-none">
+      {/* Red Margin Line on Desktop */}
       <div className="notebook-margin-line" />
 
-      {/* Subtle Ambient Coffee Stain Watercolor Ring */}
-      <svg className="fixed top-8 right-12 w-32 h-32 pointer-events-none opacity-20 z-0 overflow-visible" viewBox="0 0 100 100">
+      {/* Ambient Coffee Stain Ring */}
+      <svg className="fixed top-8 right-12 w-32 h-32 pointer-events-none opacity-15 z-0 overflow-visible hidden sm:block" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="40" fill="none" stroke="#8b552d" strokeWidth="3" strokeDasharray="6 3 12 4" transform="rotate(25 50 50)" />
         <circle cx="50" cy="50" r="42" fill="none" stroke="#8b552d" strokeWidth="1" opacity="0.6" />
       </svg>
 
-      {/* Custom Kitty Paw Cursor (Desktop) */}
+      {/* Custom Kitty Paw Cursor (Desktop only) */}
       <KittyPawCursor />
 
       {/* Interactive Runaway Kitty */}
       <RunningKitty />
 
-      {/* Interactive Doodle / Pencil Scratchpad */}
+      {/* Interactive Doodle Scratchpad */}
       <DoodleScratchpad />
 
-      {/* Left Spiral Binding Rings (Desktop) & Navigation */}
+      {/* Spiral Rings (Desktop) & Responsive Nav (Mobile Bottom Dock + Desktop Left Tabs) */}
       <SketchbookNav activeSection={activeSection} setActiveSection={setActiveSection} />
 
-      {/* Main Viewport Container */}
-      <main className="flex-1 md:pl-36 lg:pl-40 px-4 sm:px-8 max-w-6xl w-full mx-auto flex flex-col justify-center overflow-hidden py-3 sm:py-5">
-        <div key={activeSection} className="page-3d-active h-full">
+      {/* Main Content Area: Zero scroll on desktop, full scroll with padding on mobile */}
+      <main className="flex-1 md:pl-36 lg:pl-40 px-4 sm:px-8 max-w-6xl w-full mx-auto flex flex-col justify-center py-4 lg:py-5 pt-14 lg:pt-4 pb-28 lg:pb-4 overflow-y-auto lg:overflow-hidden">
+        <div key={activeSection} className="page-3d-active lg:h-full flex flex-col justify-between">
           {renderActivePage()}
         </div>
       </main>

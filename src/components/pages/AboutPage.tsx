@@ -7,7 +7,7 @@ interface PageProps {
 
 export const AboutPage: React.FC<PageProps> = ({ onNavigate }) => {
   return (
-    <div className="h-full flex flex-col justify-between py-2 sm:py-3 space-y-3 sm:space-y-4 overflow-hidden">
+    <div className="lg:h-full flex flex-col justify-between py-2 sm:py-3 space-y-4 lg:space-y-2.5 overflow-y-visible lg:overflow-hidden">
       
       <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-2 shrink-0">
         <button
@@ -21,7 +21,7 @@ export const AboutPage: React.FC<PageProps> = ({ onNavigate }) => {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center flex-1 my-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center lg:flex-1 lg:my-auto">
         
         {/* Left Polaroid & Facts */}
         <div className="lg:col-span-5 flex flex-col items-center space-y-3">
@@ -89,7 +89,7 @@ export const AboutPage: React.FC<PageProps> = ({ onNavigate }) => {
               <p className="font-bold text-[#5d8aa8] flex items-center gap-1">
                 <Sparkles className="w-3.5 h-3.5" /> Technical Strengths:
               </p>
-              <div className="grid grid-cols-2 gap-1 text-sm font-bold">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-sm font-bold">
                 <div className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-[#7a9a7b]" /> AWS Cloud Architectures</div>
                 <div className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-[#7a9a7b]" /> Python & SQL Analytics</div>
                 <div className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-[#7a9a7b]" /> Generative AI Integration</div>
@@ -101,17 +101,17 @@ export const AboutPage: React.FC<PageProps> = ({ onNavigate }) => {
 
       </div>
 
-      <div className="flex items-center justify-between pt-2 border-t border-[#3f2a1e]/15 shrink-0">
+      <div className="flex items-center justify-between pt-3 lg:pt-1 border-t border-[#3f2a1e]/15 shrink-0">
         <button
           onClick={() => onNavigate('home')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Prev: Cover
         </button>
 
         <button
           onClick={() => onNavigate('projects')}
-          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#5d8aa8] hover:bg-[#4a728e] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#5d8aa8] hover:bg-[#4a728e] text-white font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105 shadow-xs"
         >
           <span>Next: Projects</span>
           <ArrowRight className="w-3.5 h-3.5" />

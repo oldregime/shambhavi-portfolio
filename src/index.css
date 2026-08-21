@@ -2,16 +2,10 @@
 
 @layer base {
   html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-  }
-  
-  body {
     background-color: #fbf7ef;
     color: #1f1614;
-    /* Authentic Math Box Graph Paper Grid */
     background-image: 
       linear-gradient(to right, rgba(63, 42, 30, 0.05) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(63, 42, 30, 0.05) 1px, transparent 1px);
@@ -20,11 +14,21 @@
     line-height: 1.5;
   }
 
+  /* Desktop Viewport Containment (>= 1024px) */
+  @media (min-width: 1024px) {
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
+  /* Mobile/Tablet Smooth Full-Page Scrolling (< 1024px) */
   @media (max-width: 1023px) {
     html, body {
-      overflow-y: auto;
       height: auto;
       min-height: 100%;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
     }
   }
 
@@ -38,6 +42,14 @@
     background: #c2ad91;
     border-radius: 4px;
   }
+
+  /* Hide any potential Netlify badges/injections */
+  a[href*="netlify.com"], [class*="netlify-badge"], .netlify-badge, #netlify-badge {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
 
 /* 3D Page Turn Animation */
@@ -49,7 +61,12 @@
   transform-origin: left center;
   animation: pageTurnIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   backface-visibility: hidden;
-  height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .page-3d-active {
+    height: 100%;
+  }
 }
 
 @keyframes pageTurnIn {
@@ -93,7 +110,7 @@
   border: 1px dashed rgba(63, 42, 30, 0.25);
 }
 
-/* Red Margin Line down the notebook */
+/* Red Margin Line on Desktop */
 .notebook-margin-line {
   position: fixed;
   left: 140px;
@@ -105,7 +122,7 @@
   z-index: 25;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .notebook-margin-line {
     display: none;
   }
