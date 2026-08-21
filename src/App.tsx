@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { KittyPawCursor } from './components/KittyPawCursor';
+import { RunningKitty } from './components/RunningKitty';
 import { SketchbookNav } from './components/SketchbookNav';
-import { DoodleCanvas } from './components/DoodleCanvas';
 import { HomePage } from './components/pages/HomePage';
 import { AboutPage } from './components/pages/AboutPage';
 import { ProjectsPage } from './components/pages/ProjectsPage';
@@ -46,21 +47,24 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-[#fcf8f2] text-[#1f1614] notebook-container">
-      {/* Interactive Mascot Cat & Ambient Doodles */}
-      <DoodleCanvas />
+      {/* Custom Kitty Paw Cursor (Desktop) */}
+      <KittyPawCursor />
 
-      {/* Left Spiral Binding Rings & Tabs Navigation */}
+      {/* Interactive Runaway Kitty (Try to Catch Me!) */}
+      <RunningKitty />
+
+      {/* Left Spiral Binding Rings (Desktop) & Responsive Navigation */}
       <SketchbookNav activeSection={activeSection} setActiveSection={setActiveSection} />
 
-      {/* 3D Page Turn Animation Wrapper */}
-      <main className="md:pl-40 px-4 sm:px-8 max-w-6xl mx-auto py-8">
+      {/* Main Notebook Pages Container: Desktop left padding for rings, Mobile bottom padding for dock */}
+      <main className="md:pl-40 px-4 sm:px-8 max-w-6xl mx-auto py-6 sm:py-8 pb-28 md:pb-8">
         <div key={activeSection} className="page-3d-active">
           {renderActivePage()}
         </div>
       </main>
 
       {/* Footer */}
-      <div className="md:pl-40">
+      <div className="md:pl-40 pb-24 md:pb-0">
         <SketchFooter />
       </div>
     </div>
