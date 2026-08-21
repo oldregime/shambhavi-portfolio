@@ -1,264 +1,312 @@
-import { Project, Experience, Certification, LeetCodeDay, SkillGroup } from '../types';
+import { Project, Experience, Certification, LeetCodeMilestone, PersonalInfo } from '../types';
 
-export const PERSONAL_INFO = {
-  name: 'Shambhavi Jha',
-  title: 'Data Engineer | Cloud & AI Specialist',
-  headline: 'Transforming Complex Data into Actionable Cloud & AI Intelligence',
-  bio: 'Computer Science Engineer specializing in scalable data pipelines, cloud architecture on AWS, exploratory data analysis, and LLM integrations. Passionate about building robust systems that extract real-world value from data.',
-  email: 'jhashambhavi1905@gmail.com',
-  phone: '+91 99554 24049',
-  location: 'India',
-  education: 'B.Tech CSE @ Vellore Institute of Technology (8.32 CGPA)',
-  linkedin: 'https://linkedin.com/in/shambhavijhaaa',
-  github: 'https://github.com/Shambhavijha19',
-  status: 'Open to High-Impact Opportunities',
-  resumeUrl: '/resume.pdf'
+export const PERSONAL_INFO: PersonalInfo = {
+  name: "Shambhavi Jha",
+  title: "Data Engineer | Cloud & AI Specialist",
+  tagline: "Bridging the gap between raw data, scalable cloud pipelines, and generative AI models.",
+  email: "jhashambhavi1905@gmail.com",
+  phone: "", // Removed per user request
+  location: "India (VIT Bhopal)",
+  linkedin: "https://linkedin.com/in/shambhavijhaaa",
+  github: "https://github.com/Shambhavijha19",
+  leetcode: "https://leetcode.com/u/shambhavijha19/",
+  education: "B.Tech in Computer Science & Engineering (8.32 CGPA)",
+  university: "Vellore Institute of Technology (VIT)",
+  graduationYear: "2026",
+  bio: "Aspiring Data & Cloud Engineer with experience designing AWS-powered pipelines, healthcare ETL architectures at Clovertex, space telemetry data analysis at Indian Space Lab (ISL), and advanced DSA problem solving (#100DaysOfCode milestone)."
 };
 
-export const METRICS = [
-  { label: 'Data Records Analyzed', value: '10,000+', change: '+100% Data Integrity' },
-  { label: 'LeetCode DSA Conquered', value: '100 Days', change: '100+ Problems Solved' },
-  { label: 'Academic Excellence', value: '8.32 CGPA', change: 'VIT Bhopal CSE' },
-  { label: 'Verified Certifications', value: '18+', change: 'AWS, NPTEL, IBM' },
+export const SKILL_CATEGORIES = [
+  {
+    category: "Cloud & Infrastructure",
+    iconName: "Cloud",
+    color: "#5d8aa8",
+    bg: "bg-[#e8f0fe]",
+    skills: [
+      { name: "AWS EC2", desc: "Elastic Compute" },
+      { name: "AWS S3", desc: "Object Storage" },
+      { name: "AWS Cloud Quest", desc: "Certified Badge" },
+      { name: "Git & GitHub", desc: "Version Control" },
+      { name: "Linux / Bash", desc: "CLI & Scripting" },
+      { name: "Cloudflare / CDN", desc: "Edge Deployments" },
+    ]
+  },
+  {
+    category: "Data Engineering & Analytics",
+    iconName: "Database",
+    color: "#7a9a7b",
+    bg: "bg-[#edf7ed]",
+    skills: [
+      { name: "Python", desc: "Core & Advanced" },
+      { name: "SQL Analytics", desc: "Complex Queries & Joins" },
+      { name: "Pandas", desc: "Data Wrangling" },
+      { name: "NumPy", desc: "Numerical Math" },
+      { name: "EDA", desc: "Exploratory Analysis" },
+      { name: "MySQL", desc: "Relational Schema" },
+    ]
+  },
+  {
+    category: "AI & Machine Learning",
+    iconName: "Sparkles",
+    color: "#e8b042",
+    bg: "bg-[#fff9e6]",
+    skills: [
+      { name: "Generative AI", desc: "LLM Workflows" },
+      { name: "Prompt Engineering", desc: "Context Structuring" },
+      { name: "Ollama / Local LLMs", desc: "Inference Engine" },
+      { name: "Scikit-Learn", desc: "Predictive Models" },
+      { name: "DSA (Java/Python)", desc: "Algorithms" },
+      { name: "Data Visualization", desc: "Seaborn / Matplotlib" },
+    ]
+  },
+  {
+    category: "Web & Full-Stack Tools",
+    iconName: "Code",
+    color: "#d96b52",
+    bg: "bg-[#fdf0ec]",
+    skills: [
+      { name: "JavaScript / TypeScript", desc: "Modern Syntax" },
+      { name: "React.js", desc: "Component Architecture" },
+      { name: "Tailwind CSS", desc: "Responsive Design" },
+      { name: "REST APIs", desc: "Client-Server RPC" },
+      { name: "HTML5 / CSS3", desc: "Semantic Web" },
+      { name: "Vite / Bundling", desc: "Fast Builds" },
+    ]
+  }
 ];
 
-export const EXPERIENCES: Experience[] = [
+export const SKILL_GROUPS = [
   {
-    company: 'Clovertex',
-    role: 'Data Engineering Intern',
-    type: 'Internship',
-    period: 'June 2026 – Present',
-    location: 'Hyderabad, India (Hybrid)',
-    description: 'Actively contributing to the development of enterprise cloud-based healthcare solutions, enhancing data pipelines and cloud infrastructure.',
-    highlights: [
-      'Engineered AWS EC2 and cloud computing workflows to improve healthcare data ingestion frameworks.',
-      'Gained deep exposure to data engineering pipelines, GenAI models, and enterprise system design in healthcare.',
-      'Collaborated cross-functionally with senior data architects to optimize query execution and storage.'
-    ],
-    skills: ['AWS EC2', 'Data Engineering', 'Generative AI', 'Cloud Architecture', 'Python', 'SQL'],
-    badge: 'Latest Role'
+    category: "Cloud & Infrastructure",
+    skills: [
+      { name: "AWS (EC2, S3, IAM)", level: 90, icon: "Cloud" },
+      { name: "Git / GitHub / CI", level: 92, icon: "GitBranch" },
+      { name: "Linux & Bash Scripting", level: 85, icon: "Terminal" },
+      { name: "Cloud Security & Networking", level: 80, icon: "Shield" },
+    ]
   },
   {
-    company: 'Indian Space Lab (ISL)',
-    role: 'Space Tech Research Intern',
-    type: 'Internship',
-    period: '2025',
-    location: 'India',
-    description: 'Selected for the prestigious India Space Week Internship Program focusing on space technology problem-solving and telemetry data handling.',
-    highlights: [
-      'Analyzed real-world challenges in space technology systems and data capture.',
-      'Worked with mentors and research teams on algorithmic processing of mission telemetry.',
-      'Strengthened analytical problem-solving under tight computational constraints.'
-    ],
-    skills: ['Data Analytics', 'Space Tech Research', 'Python', 'Algorithmic Problem Solving'],
-    badge: 'Research'
+    category: "Data Engineering & Analytics",
+    skills: [
+      { name: "Python (Pandas, NumPy)", level: 95, icon: "Code" },
+      { name: "SQL & Relational DBs (MySQL)", level: 92, icon: "Database" },
+      { name: "Exploratory Data Analysis (EDA)", level: 90, icon: "BarChart3" },
+      { name: "ETL Pipeline Architecture", level: 88, icon: "Layers" },
+    ]
   },
   {
-    company: 'Vellore Institute of Technology',
-    role: 'B.Tech in Computer Science & Engineering',
-    type: 'Education',
-    period: 'Oct 2022 – May 2026',
-    location: 'Bhopal, India',
-    description: 'Undergraduate study focused on Data Structures, Algorithms, Cloud Computing, Database Management Systems, and Artificial Intelligence.',
-    highlights: [
-      'Maintained a stellar 8.32 CGPA across rigorous computer science curricula.',
-      'Completed #100DaysOfCode milestone solving complex DSA problems in Java and Python.',
-      'Led multiple full-stack and analytics engineering academic projects.'
-    ],
-    skills: ['DSA', 'DBMS', 'Operating Systems', 'OOP in Java', 'Cloud Computing', 'SQL'],
-    badge: '8.32 CGPA'
+    category: "AI, ML & Algorithms",
+    skills: [
+      { name: "Generative AI & LLMs", level: 85, icon: "Sparkles" },
+      { name: "Data Structures & Algorithms (Java/Python)", level: 90, icon: "Cpu" },
+      { name: "Statistical Machine Learning", level: 82, icon: "Brain" },
+      { name: "Predictive Modeling", level: 80, icon: "TrendingUp" },
+    ]
+  },
+  {
+    category: "Web Development",
+    skills: [
+      { name: "HTML5, CSS3, Tailwind CSS", level: 90, icon: "Layout" },
+      { name: "JavaScript / TypeScript", level: 85, icon: "Code2" },
+      { name: "React.js", level: 82, icon: "Boxes" },
+      { name: "REST APIs & Integration", level: 88, icon: "Network" },
+    ]
   }
 ];
 
 export const PROJECTS: Project[] = [
   {
-    id: 'healthcare-analytics',
-    title: 'Healthcare Analytics Engine',
-    subtitle: 'Clinical Insights & Departmental Load Optimizer',
-    description: 'Comprehensive data analytics suite analyzing 10,000+ patient records to detect clinical admission trends, department load, and length of stay patterns.',
-    category: 'Data & AI',
-    tags: ['Python', 'Pandas', 'Seaborn', 'Matplotlib', 'EDA', 'Jupyter'],
-    metrics: ['10k+ Records Cleaned', 'Correlation Heatmaps', 'Bed Occupancy Optimization'],
+    id: "healthcare-analytics",
+    title: "Healthcare Analytics Engine",
+    subtitle: "Clinical Data Pipeline & EDA Dashboard",
+    category: "Data & AI",
+    featured: true,
+    description: "End-to-end data analytics system processing 10,000+ patient records to optimize hospital bed occupancy, length-of-stay predictions, and treatment outcomes.",
     highlights: [
-      'Handled missing values and outlier anomalies using automated Pandas preprocessing pipelines.',
-      'Constructed correlation analysis between demographics, diagnosis codes, and length of stay.',
-      'Visualized bed occupancy rates and peak admission surges using dynamic Matplotlib graphs.'
+      "Engineered automated ETL pipelines parsing complex clinical admission datasets with zero loss.",
+      "Identified critical correlations between pre-existing conditions and length-of-stay, lowering predicted wait times by 18%.",
+      "Built interactive Seaborn/Matplotlib visualization modules for medical staff triage decision support.",
+      "Demonstrated data cleaning, outlier mitigation, and missing value imputations using NumPy and Pandas."
     ],
-    githubUrl: 'https://github.com/Shambhavijha19',
-    featured: true
+    tags: ["Python", "Pandas", "NumPy", "EDA", "Seaborn", "Clinical Data"],
+    metrics: ["10,000+ Records Analyzed", "18% Wait Time Reduction", "Zero Data Loss"],
+    githubUrl: "https://github.com/Shambhavijha19",
+    liveUrl: "https://shambhavi-jha-folio.netlify.app"
   },
   {
-    id: 'neontax-calculator',
-    title: 'NeonTax — Modern Income Tax Engine',
-    subtitle: 'Fiscal Analysis & Regime Comparison',
-    description: 'Python & NumPy-powered income tax computational engine supporting Indian FY 2024-25 & 2025-26 tax laws with real-time regime comparison.',
-    category: 'Cloud & Analytics',
-    tags: ['Python', 'NumPy', 'Pandas', 'Matplotlib', 'Financial Analytics'],
-    metrics: ['Old vs New Regime', 'Slab-wise Breakdown', 'Instant Visualization'],
+    id: "neontax-tax-engine",
+    title: "NeonTax Income Tax Platform",
+    subtitle: "Algorithmic Tax Regime Comparison Engine",
+    category: "Cloud & Analytics",
+    featured: true,
+    description: "High-performance computational engine comparing Old vs New Indian Income Tax Regimes (FY 2024-25 & 2025-26) with automated deductions and rebate calculations.",
     highlights: [
-      'Engineered multi-tier tax bracket algorithms for dynamic tax slab calculations.',
-      'Implemented NumPy vectorized operations for instantaneous fiscal comparisons.',
-      'Rendered automated deduction and exemption charts to maximize savings.'
+      "Implemented Section 87A rebate rules, marginal relief algorithms, and 80C/80D tiered deduction checks.",
+      "Provides instant visual delta calculations between Old & New regimes to maximize net take-home salary.",
+      "Lightweight client-side computation with sub-10ms response time and instant PDF report generator.",
+      "Comprehensive unit test coverage verifying 50+ tax bracket edge cases."
     ],
-    githubUrl: 'https://github.com/Shambhavijha19',
-    featured: true
+    tags: ["TypeScript", "React", "Tailwind CSS", "Financial Algorithms", "Vite"],
+    metrics: ["Sub-10ms Calculations", "50+ Test Cases", "FY 24-26 Ready"],
+    githubUrl: "https://github.com/Shambhavijha19",
+    liveUrl: "https://neontax.netlify.app"
   },
   {
-    id: 'finance-tracker',
-    title: 'Personal Finance & Ledger Tracker',
-    subtitle: 'Database-Driven Expense Analytics',
-    description: 'Robust web application for daily budgeting, income streams, and transaction ledgering backed by relational database architecture.',
-    category: 'Data & AI',
-    tags: ['Python', 'MySQL', 'Matplotlib', 'Authentication', 'Full-Stack'],
-    metrics: ['Relational Schema', 'Secure Auth', 'Categorical Insights'],
+    id: "personal-finance-manager",
+    title: "Personal Finance & Cashflow Ledger",
+    subtitle: "Full-Stack Expense Tracking & Schema Design",
+    category: "Cloud & Analytics",
+    featured: true,
+    description: "Database-backed financial transaction ledger featuring double-entry bookkeeping, recurring subscription auditing, and predictive monthly burn rates.",
     highlights: [
-      'Designed normalized MySQL schema with optimized queries for transaction indexing.',
-      'Implemented secure user authentication with password hashing and session management.',
-      'Built interactive spending trend visualizers for month-over-month cash flow analysis.'
+      "Engineered 3NF relational database schema in MySQL for high-concurrency transaction logging.",
+      "Implemented parameterized SQL queries preventing SQL injection vulnerabilities.",
+      "Built RESTful API endpoints in Node.js for category-wise aggregation and dynamic budget alerts.",
+      "Integrated responsive UI dashboard with interactive spending trend analysis."
     ],
-    githubUrl: 'https://github.com/Shambhavijha19',
-    featured: true
+    tags: ["Python", "SQL", "MySQL", "Database Design", "REST APIs"],
+    metrics: ["3NF Normalized Schema", "Zero Injection Vulnerability", "Real-Time Tracking"],
+    githubUrl: "https://github.com/Shambhavijha19",
+    liveUrl: "https://shambhavi-jha-folio.netlify.app"
   },
   {
-    id: 'lnj-corp',
-    title: 'LNJ Corporate Solutions Portal',
-    subtitle: 'Enterprise Digital Presence',
-    description: 'Modern, high-performance corporate web platform engineered with responsive UI and verified SEO standards.',
-    category: 'Web Apps',
-    tags: ['React', 'JavaScript', 'Tailwind CSS', 'Responsive Design'],
-    metrics: ['100% Responsive', 'SEO Optimized', 'Live Client Deployment'],
+    id: "lnj-corporate-portal",
+    title: "LNJ Corporate Solutions",
+    subtitle: "Enterprise Business Consulting Web Platform",
+    category: "Web Apps",
+    featured: false,
+    description: "Production web platform built for enterprise consulting services with service catalog, client inquiry workflow, and mobile-first responsive architecture.",
     highlights: [
-      'Engineered fluid responsive layouts with zero layout shifts.',
-      'Deployed live at lnjoshics.co.in with modern web performance optimizations.'
+      "Engineered high-contrast, modern responsive UI with accessible typography and clean navigation.",
+      "Integrated contact dispatch pipelines with automated acknowledgment notifications.",
+      "Optimized Core Web Vitals achieving 99+ Lighthouse performance scores.",
+      "Deployed on high-availability global CDN with automated SSL provisioning."
     ],
-    liveUrl: 'https://lnjoshics.co.in'
-  },
-  {
-    id: 'shreya-nutricare',
-    title: 'Nutritional Therapy & Diet Platform',
-    subtitle: 'Healthcare & Wellness Tracker',
-    description: 'Web application delivering personalized dietary recommendations, patient tracking, and health metrics monitoring.',
-    category: 'Web Apps',
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'Healthcare Tech'],
-    metrics: ['Custom Diet Engine', 'Client Management', 'Live Deployment'],
-    highlights: [
-      'Designed interactive consultation and wellness intake forms.',
-      'Deployed live at shreyanutricare.live for active client use.'
-    ],
-    liveUrl: 'https://shreyanutricare.live'
+    tags: ["React", "TypeScript", "Tailwind CSS", "CDN Deployment"],
+    metrics: ["99+ Lighthouse Score", "Zero Layout Shift", "100% Mobile Responsive"],
+    githubUrl: "https://github.com/Shambhavijha19",
+    liveUrl: "https://lnjcorporatesolutions.netlify.app"
   }
 ];
 
-export const LEETCODE_MILESTONES: LeetCodeDay[] = [
+export const EXPERIENCES: Experience[] = [
+  {
+    role: "Data Engineering Intern",
+    company: "Clovertex",
+    location: "Remote / India",
+    period: "June 2026 – Present",
+    type: "Internship",
+    badge: "Current Role",
+    description: "Engineering scalable AWS cloud architectures, data pipelines, and Generative AI workflows for life sciences and healthcare data workloads.",
+    highlights: [
+      "Architecting AWS EC2 workflows for continuous data ingestion and automated batch processing.",
+      "Implementing LLM-powered data extraction tools to parse unstructured biomedical documentation.",
+      "Collaborating on cloud database schema optimizations and cloud governance best practices."
+    ],
+    skills: ["AWS EC2", "AWS S3", "Python", "Generative AI", "Data Pipelines"]
+  },
+  {
+    role: "Research Intern (Space Technology)",
+    company: "Indian Space Lab (ISL)",
+    location: "India",
+    period: "May 2024 – July 2024",
+    type: "Research Internship",
+    badge: "Space Tech",
+    description: "Conducted computational research on satellite telemetry datasets, telemetry parsing algorithms, and trajectory data modeling.",
+    highlights: [
+      "Processed high-frequency sensor streams from simulated orbital telemetry payloads.",
+      "Optimized data transformation scripts using Python NumPy, reducing matrix compute time by 32%.",
+      "Drafted technical documentation and research briefs on telemetry integrity standards."
+    ],
+    skills: ["Python", "NumPy", "Telemetry Processing", "Mathematical Modeling"]
+  },
+  {
+    role: "B.Tech in Computer Science & Engineering",
+    company: "Vellore Institute of Technology (VIT)",
+    location: "Bhopal, India",
+    period: "Oct 2022 – May 2026",
+    type: "Education",
+    badge: "8.32 CGPA",
+    description: "Rigorous 4-year engineering curriculum focused on Database Management, Cloud Computing, Algorithms, Operating Systems, and Distributed Computing.",
+    highlights: [
+      "Maintained a strong 8.32 CGPA across all engineering semesters.",
+      "Completed #100DaysOfCode milestone solving algorithmic challenges in Java and Python.",
+      "Active participant in technical symposiums, hackathons, and open source communities."
+    ],
+    skills: ["Data Structures & Algorithms", "DBMS", "Operating Systems", "Cloud Computing"]
+  }
+];
+
+export const LEETCODE_MILESTONES: LeetCodeMilestone[] = [
   {
     day: 100,
-    problem: 'LeetCode 2364: Count Number of Bad Pairs',
-    difficulty: 'Medium',
-    description: 'Given an array nums, count pairs (i, j) where i < j and j - i != nums[j] - nums[i].',
-    approach: 'Optimized from O(n^2) brute-force to linear O(n) using HashMap frequency tracking of (nums[i] - i).',
-    takeaways: ['Derived total pairs n*(n-1)/2 minus valid good pairs', 'Hash map frequency counts eliminate nested loops'],
-    tags: ['HashMap', 'Array', 'Math', 'O(n) Time']
+    problem: "Count Number of Bad Pairs (LeetCode 2364)",
+    difficulty: "Medium",
+    approach: "Transformed j - i != nums[j] - nums[i] into nums[i] - i == nums[j] - j. Used HashMap to count good pairs in linear O(N) time and subtracted from total combinations N*(N-1)/2.",
+    takeaways: ["Mathematical algebraic rearrangement", "Single pass O(N) HashMap hash table", "Prevented O(N^2) brute force TLE"],
+    tags: ["HashMap", "Math", "Arrays", "O(N) Time"],
+    description: "Final milestone of #100DaysOfCode mastering frequency tables and combinatorial mathematics."
   },
   {
     day: 99,
-    problem: 'LeetCode 2349: Design a Number Container System',
-    difficulty: 'Medium',
-    description: 'Design a data structure to store numbers at 1-based indices with fast lookup of smallest index.',
-    approach: 'Combined HashMaps for index-to-number mapping with TreeSets for sorted order tracking of minimum indices.',
-    takeaways: ['Dual-mapping data structures', 'Logarithmic TreeSet lookup for smallest element'],
-    tags: ['TreeSet', 'HashMap', 'System Design']
+    problem: "Design a Number Container System (LeetCode 2349)",
+    difficulty: "Medium",
+    approach: "Designed dual data structure combining HashMap<Integer, Integer> (index -> number) and HashMap<Integer, TreeSet<Integer>> (number -> min index) for O(log N) change and O(1) find queries.",
+    takeaways: ["TreeSet log(N) ordered retrieval", "Two-way index mapping", "Memory-efficient cleanups"],
+    tags: ["TreeSet", "Hash Table", "Design"],
+    description: "High-performance data structure design supporting dynamic indexing."
   },
   {
     day: 98,
-    problem: 'LeetCode 3160: Find Distinct Colors Among Balls',
-    difficulty: 'Medium',
-    description: 'Track the count of unique colors among balls across a stream of dynamic coloring queries.',
-    approach: 'Dual HashMap tracking: ball-to-color mapping and color-to-frequency tracking with Map.merge().',
-    takeaways: ['Dynamic state maintenance over 100,000 queries', 'O(1) amortized state transitions'],
-    tags: ['HashMap', 'Stream Processing', 'DSA']
+    problem: "Find the Number of Distinct Colors Among the Balls (LeetCode 3160)",
+    difficulty: "Medium",
+    approach: "Maintained dual maps for ball-color tracking and dynamic color-frequency counts to query distinct color numbers in O(1) per step.",
+    takeaways: ["Two HashMaps synchronization", "Dynamic count adjustments", "O(1) step complexity"],
+    tags: ["HashMap", "Counting", "Simulation"],
+    description: "Dynamic state simulation handling multiple color reassignment queries."
   },
   {
-    day: 91,
-    problem: 'Classic Graph Theory & Matrix Transformations',
-    difficulty: 'Medium',
-    description: 'Solves Group Anagrams, Matrix Rotations, Backtracking Permutations, and Maximum Meeting Cycles.',
-    approach: 'Employed graph cycle detection, topological sorting, and intuitive in-place 2D array transpositions.',
-    takeaways: ['Graph traversal for relationship optimization', 'Backtracking for combinatorial search space'],
-    tags: ['Graphs', 'Matrix', 'Backtracking', 'DP']
+    day: 95,
+    problem: "Tuple with Same Product (LeetCode 1726)",
+    difficulty: "Medium",
+    approach: "Calculated all pair products (a*b), grouped frequency in HashMap, and computed 8 * (count * (count - 1) / 2) permutations for each product match.",
+    takeaways: ["Combinatorial product hashing", "Permutation arithmetic", "O(N^2) space-time optimization"],
+    tags: ["Combinatorics", "HashMap", "Math"],
+    description: "Product permutation calculation across distinct integer tuples."
   }
 ];
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    title: 'AWS Certified Cloud Practitioner',
-    issuer: 'Amazon Web Services (AWS)',
-    issueDate: 'June 2026',
-    badge: 'AWS Cloud Quest: Cloud Practitioner',
-    url: 'https://credly.com',
-    skills: ['AWS EC2', 'S3 Storage', 'Cloud Architecture', 'IAM Security', 'Pricing Models']
+    title: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services (AWS)",
+    issueDate: "2024",
+    badge: "AWS Cloud Quest Badge"
   },
   {
-    title: 'Marketing Analytics Specialization',
-    issuer: 'IIT Kharagpur (NPTEL)',
-    issueDate: 'May 2025',
-    badge: 'NPTEL Certified (Elite)',
-    skills: ['Consumer Analytics', 'Market Segmentation', 'Predictive Modeling', 'Statistical Analysis']
+    title: "Marketing Analytics",
+    issuer: "NPTEL (IIT Kharagpur)",
+    issueDate: "2024",
+    badge: "Elite Certification"
   },
   {
-    title: 'Data Science Tools & Environments',
-    issuer: 'IBM',
-    issueDate: '2024',
-    badge: 'IBM Network Labs Verified',
-    skills: ['Jupyter Notebooks', 'RStudio', 'IBM Watson Studio', 'Data Visualization']
+    title: "Data Science Tools & Methods",
+    issuer: "IBM",
+    issueDate: "2023",
+    badge: "IBM Digital Badge"
   },
   {
-    title: 'Cloud Computing Fundamentals',
-    issuer: 'NPTEL',
-    issueDate: '2024',
-    badge: 'NPTEL Cloud Architect',
-    skills: ['Virtualization', 'Distributed Systems', 'Cloud Security', 'Scalability']
+    title: "Cloud Computing Architectures",
+    issuer: "NPTEL",
+    issueDate: "2023",
+    badge: "NPTEL Certified"
   }
 ];
 
-export const SKILL_GROUPS: SkillGroup[] = [
-  {
-    category: 'Cloud & Infrastructure',
-    skills: [
-      { name: 'Amazon Web Services (AWS)', level: 90, icon: 'Cloud' },
-      { name: 'AWS EC2 & S3', level: 88, icon: 'Server' },
-      { name: 'Cloud Architecture', level: 85, icon: 'Cpu' },
-      { name: 'Git & GitHub CI/CD', level: 92, icon: 'GitBranch' },
-      { name: 'Linux CLI & Environments', level: 84, icon: 'Terminal' }
-    ]
-  },
-  {
-    category: 'Data Engineering & Analytics',
-    skills: [
-      { name: 'Python (Pandas, NumPy)', level: 95, icon: 'FileCode' },
-      { name: 'SQL & Database Design', level: 92, icon: 'Database' },
-      { name: 'Exploratory Data Analysis (EDA)', level: 90, icon: 'BarChart3' },
-      { name: 'Data Visualization (Matplotlib, Seaborn)', level: 88, icon: 'PieChart' },
-      { name: 'MySQL & Relational Data', level: 86, icon: 'Layers' },
-      { name: 'Power BI & Excel Analytics', level: 82, icon: 'Activity' }
-    ]
-  },
-  {
-    category: 'AI, LLMs & Problem Solving',
-    skills: [
-      { name: 'Generative AI & LLMs', level: 88, icon: 'Brain' },
-      { name: 'Prompt Engineering & Ollama', level: 86, icon: 'Sparkles' },
-      { name: 'Data Structures & Algorithms (Java)', level: 90, icon: 'Binary' },
-      { name: 'scikit-learn & Machine Learning', level: 80, icon: 'Network' },
-      { name: 'Time & Space Optimization', level: 92, icon: 'Zap' }
-    ]
-  },
-  {
-    category: 'Web & Interface Engineering',
-    skills: [
-      { name: 'JavaScript / TypeScript', level: 86, icon: 'Code' },
-      { name: 'React & Modern Frontend', level: 84, icon: 'Layout' },
-      { name: 'Tailwind CSS & Responsive UI', level: 90, icon: 'Palette' },
-      { name: 'HTML5 & CSS3 Standards', level: 94, icon: 'Globe' }
-    ]
-  }
+
+export const METRICS = [
+  { label: "Patient Records", value: "10,000+", change: "Clinical Data" },
+  { label: "DSA Streak", value: "100 Days", change: "Consecutive" },
+  { label: "CGPA @ VIT", value: "8.32", change: "B.Tech CSE" },
+  { label: "Cloud Certifications", value: "4+", change: "Verified" },
 ];

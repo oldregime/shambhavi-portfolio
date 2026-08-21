@@ -58,7 +58,7 @@ export const CertificationsGrid: React.FC = () => {
 
               <div className="space-y-3 pt-2">
                 <div className="flex flex-wrap gap-1">
-                  {cert.skills.map((s) => (
+                  {(cert.skills || []).map((s) => (
                     <span key={s} className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">
                       {s}
                     </span>

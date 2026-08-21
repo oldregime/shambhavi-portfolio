@@ -4,26 +4,26 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
+  category: ProjectCategory;
+  featured: boolean;
   description: string;
-  category: 'Data & AI' | 'Cloud & Analytics' | 'Web Apps';
+  highlights: string[];
   tags: string[];
   metrics: string[];
-  highlights: string[];
   githubUrl?: string;
   liveUrl?: string;
-  featured?: boolean;
 }
 
 export interface Experience {
-  company: string;
   role: string;
-  type: string;
-  period: string;
+  company: string;
   location: string;
+  period: string;
+  type: string;
+  badge?: string;
   description: string;
   highlights: string[];
   skills: string[];
-  badge?: string;
 }
 
 export interface Certification {
@@ -32,20 +32,31 @@ export interface Certification {
   issueDate: string;
   badge: string;
   url?: string;
-  skills: string[];
+  skills?: string[];
 }
 
-export interface LeetCodeDay {
+export interface LeetCodeMilestone {
   day: number;
   problem: string;
   difficulty: 'Easy' | 'Medium' | 'Hard';
-  description: string;
   approach: string;
   takeaways: string[];
   tags: string[];
+  description: string;
 }
 
-export interface SkillGroup {
-  category: string;
-  skills: { name: string; level: number; icon: string }[];
+export interface PersonalInfo {
+  name: string;
+  title: string;
+  tagline: string;
+  email: string;
+  phone: string;
+  location: string;
+  linkedin: string;
+  github: string;
+  leetcode: string;
+  education: string;
+  university: string;
+  graduationYear: string;
+  bio: string;
 }
