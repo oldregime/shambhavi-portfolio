@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { KittyPawCursor } from './components/KittyPawCursor';
 import { RunningKitty } from './components/RunningKitty';
+import { DoodleScratchpad } from './components/DoodleScratchpad';
 import { SketchbookNav } from './components/SketchbookNav';
 import { HomePage } from './components/pages/HomePage';
 import { AboutPage } from './components/pages/AboutPage';
@@ -45,18 +46,30 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative h-screen max-h-screen overflow-hidden flex flex-col justify-center bg-[#fcf8f2] text-[#1f1614] notebook-container select-none">
+    <div className="relative h-screen max-h-screen overflow-hidden flex flex-col justify-center bg-[#fbf7ef] text-[#1f1614] notebook-container select-none">
+      {/* Authentic Red Margin Line of Notebook Page */}
+      <div className="notebook-margin-line" />
+
+      {/* Subtle Ambient Coffee Stain Watercolor Ring */}
+      <svg className="fixed top-8 right-12 w-32 h-32 pointer-events-none opacity-20 z-0 overflow-visible" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#8b552d" strokeWidth="3" strokeDasharray="6 3 12 4" transform="rotate(25 50 50)" />
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#8b552d" strokeWidth="1" opacity="0.6" />
+      </svg>
+
       {/* Custom Kitty Paw Cursor (Desktop) */}
       <KittyPawCursor />
 
       {/* Interactive Runaway Kitty */}
       <RunningKitty />
 
+      {/* Interactive Doodle / Pencil Scratchpad */}
+      <DoodleScratchpad />
+
       {/* Left Spiral Binding Rings (Desktop) & Navigation */}
       <SketchbookNav activeSection={activeSection} setActiveSection={setActiveSection} />
 
       {/* Main Viewport Container */}
-      <main className="flex-1 md:pl-36 lg:pl-40 px-4 sm:px-8 max-w-6xl w-full mx-auto flex flex-col justify-center overflow-hidden py-4 sm:py-6">
+      <main className="flex-1 md:pl-36 lg:pl-40 px-4 sm:px-8 max-w-6xl w-full mx-auto flex flex-col justify-center overflow-hidden py-3 sm:py-5">
         <div key={activeSection} className="page-3d-active h-full">
           {renderActivePage()}
         </div>
