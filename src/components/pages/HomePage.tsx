@@ -25,14 +25,11 @@ export const HomePage: React.FC<PageProps> = ({ onNavigate }) => {
   return (
     <div className="h-full flex flex-col justify-between py-2 sm:py-3 space-y-3 sm:space-y-4 overflow-hidden">
       
-      {/* Top Banner */}
+      {/* Top Breadcrumb */}
       <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-2 shrink-0">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ede0ca] border-2 border-[#3f2a1e] shadow-xs" style={{ filter: 'url(#sketch-wobble)' }}>
-          <span className="w-2 h-2 rounded-full bg-[#7a9a7b] animate-ping inline-block" />
-          <span className="font-hand text-sm font-bold text-[#1a110e]">
-            Data Engineering Intern @ Clovertex
-          </span>
-        </div>
+        <span className="font-marker text-xs sm:text-sm text-[#5d8aa8] uppercase tracking-wider flex items-center gap-1.5 font-bold">
+          <Sparkles className="w-4 h-4 text-[#e8b042]" /> The Data Engineer's Sketchbook
+        </span>
 
         <span className="font-marker text-xs text-[#6a524a] hidden sm:block">
           📖 Page 01 / 07 • The Cover
@@ -45,9 +42,6 @@ export const HomePage: React.FC<PageProps> = ({ onNavigate }) => {
         {/* Left Bio Content */}
         <div className="lg:col-span-7 space-y-3.5">
           <div className="space-y-1">
-            <p className="font-marker text-xs sm:text-sm text-[#5d8aa8] uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-[#e8b042]" /> The Data Engineer's Sketchbook
-            </p>
             <h1 className="text-3xl sm:text-5xl font-black text-[#1a110e] font-display tracking-tight leading-[1.1]">
               Shambhavi Jha
             </h1>

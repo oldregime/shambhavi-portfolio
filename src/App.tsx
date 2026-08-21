@@ -10,7 +10,6 @@ import { LeetCodePage } from './components/pages/LeetCodePage';
 import { SkillsPage } from './components/pages/SkillsPage';
 import { ResumePage } from './components/pages/ResumePage';
 import { ContactPage } from './components/pages/ContactPage';
-import { SketchFooter } from './components/SketchFooter';
 import { playSketchSound } from './utils/sketchAudio';
 
 export const App: React.FC = () => {
@@ -46,7 +45,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative h-screen max-h-screen overflow-hidden flex flex-col justify-between bg-[#fcf8f2] text-[#1f1614] notebook-container select-none">
+    <div className="relative h-screen max-h-screen overflow-hidden flex flex-col justify-center bg-[#fcf8f2] text-[#1f1614] notebook-container select-none">
       {/* Custom Kitty Paw Cursor (Desktop) */}
       <KittyPawCursor />
 
@@ -56,17 +55,12 @@ export const App: React.FC = () => {
       {/* Left Spiral Binding Rings (Desktop) & Navigation */}
       <SketchbookNav activeSection={activeSection} setActiveSection={setActiveSection} />
 
-      {/* Main Viewport Container: 100% Zero-Scroll on 1920x1080 */}
-      <main className="flex-1 md:pl-36 lg:pl-40 px-4 sm:px-8 max-w-6xl w-full mx-auto flex flex-col justify-center overflow-hidden py-2 sm:py-3">
+      {/* Main Viewport Container */}
+      <main className="flex-1 md:pl-36 lg:pl-40 px-4 sm:px-8 max-w-6xl w-full mx-auto flex flex-col justify-center overflow-hidden py-4 sm:py-6">
         <div key={activeSection} className="page-3d-active h-full">
           {renderActivePage()}
         </div>
       </main>
-
-      {/* Compact Zero-Scroll Footer */}
-      <div className="md:pl-36 lg:pl-40 shrink-0">
-        <SketchFooter />
-      </div>
     </div>
   );
 };
