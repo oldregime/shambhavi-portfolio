@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
-import { MapPin, Send, Copy, Check, Sparkles, ArrowLeft } from 'lucide-react';
+import { MapPin, Send, Copy, Check, Sparkles, ArrowLeft, Code2 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../SocialIcons';
 import confetti from 'canvas-confetti';
 import { playSketchSound } from '../../utils/sketchAudio';
@@ -40,9 +40,9 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="lg:h-full flex flex-col justify-between py-2 sm:py-3 space-y-4 lg:space-y-2.5 overflow-y-visible lg:overflow-hidden">
+    <div className="lg:h-full flex flex-col justify-between py-1 lg:py-2 space-y-3 lg:space-y-2 overflow-y-visible lg:overflow-hidden">
       
-      <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-2 shrink-0">
+      <div className="flex items-center justify-between border-b border-[#3f2a1e]/15 pb-1.5 shrink-0">
         <button
           onClick={() => onNavigate('resume')}
           className="flex items-center gap-1 font-hand text-sm font-bold text-[#5d8aa8] hover:underline"
@@ -57,13 +57,14 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center lg:flex-1 lg:my-auto">
         
         {/* Postbox Card */}
-        <div className="md:col-span-5 space-y-3">
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#fffef9] border-2 border-[#3f2a1e] shadow-md space-y-3" style={{ filter: 'url(#sketch-wobble)' }}>
+        <div className="md:col-span-5 space-y-2.5">
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#fffef9] border-2 border-[#3f2a1e] shadow-md space-y-2.5" style={{ filter: 'url(#sketch-wobble)' }}>
             <h3 className="font-hand text-xl font-bold text-[#1a110e] flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#e8b042]" /> Contact Postbox
             </h3>
 
-            <div className="p-3 rounded-xl bg-[#f5ebd9] border border-[#d9cca8] space-y-1">
+            {/* Email Coordinate */}
+            <div className="p-2.5 rounded-xl bg-[#f5ebd9] border border-[#d9cca8] space-y-1">
               <span className="font-hand text-xs text-[#6a524a] block font-bold">Email Coordinate:</span>
               <div className="flex items-center justify-between gap-1">
                 <span className="font-mono text-xs text-[#1a110e] truncate font-bold">{PERSONAL_INFO.email}</span>
@@ -77,20 +78,22 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            <div className="space-y-1.5 font-hand text-sm text-[#2b1d19]">
+            {/* Location */}
+            <div className="space-y-1 font-hand text-sm text-[#2b1d19]">
               <div className="flex items-center gap-2 p-2 rounded-xl bg-[#ede0ca]/60">
                 <MapPin className="w-3.5 h-3.5 text-[#d96b52]" />
                 <span className="font-bold">{PERSONAL_INFO.location}</span>
               </div>
             </div>
 
+            {/* Social Links */}
             <div className="flex gap-2 pt-0.5">
               <a
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => playSketchSound('pop')}
-                className="flex-1 py-2 px-2 rounded-xl bg-[#5d8aa8] text-white font-hand font-bold text-sm flex items-center justify-center gap-1.5 border border-[#3f2a1e] hover:scale-105 transition-transform"
+                className="flex-1 py-2 px-2 rounded-xl bg-[#5d8aa8] text-white font-hand font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 border border-[#3f2a1e] hover:scale-105 transition-transform"
               >
                 <LinkedinIcon className="w-3.5 h-3.5" /> LinkedIn
               </a>
@@ -99,17 +102,28 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => playSketchSound('pop')}
-                className="flex-1 py-2 px-2 rounded-xl bg-[#ede0ca] text-[#1a110e] font-hand font-bold text-sm flex items-center justify-center gap-1.5 border border-[#3f2a1e] hover:scale-105 transition-transform"
+                className="flex-1 py-2 px-2 rounded-xl bg-[#ede0ca] text-[#1a110e] font-hand font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 border border-[#3f2a1e] hover:scale-105 transition-transform"
               >
                 <GithubIcon className="w-3.5 h-3.5" /> GitHub
               </a>
+              {PERSONAL_INFO.leetcode && (
+                <a
+                  href={PERSONAL_INFO.leetcode}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => playSketchSound('pop')}
+                  className="flex-1 py-2 px-2 rounded-xl bg-[#e8b042] text-[#1a110e] font-hand font-bold text-xs sm:text-sm flex items-center justify-center gap-1 border border-[#3f2a1e] hover:scale-105 transition-transform"
+                >
+                  <Code2 className="w-3.5 h-3.5" /> LeetCode
+                </a>
+              )}
             </div>
           </div>
         </div>
 
         {/* Message Form */}
         <div className="md:col-span-7">
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#fffef9] border-2 border-[#3f2a1e] shadow-md space-y-3 relative" style={{ filter: 'url(#sketch-wobble)' }}>
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#fffef9] border-2 border-[#3f2a1e] shadow-md space-y-2.5 relative" style={{ filter: 'url(#sketch-wobble)' }}>
             <h3 className="font-hand text-xl font-bold text-[#1a110e]">
               Write a note in the sketchbook ✉️
             </h3>
@@ -120,8 +134,8 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
                 <p className="text-xs text-[#2b1d19]">Thank you {form.name}! I will be in touch shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-2.5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <form onSubmit={handleSubmit} className="space-y-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <div className="space-y-0.5">
                     <label className="font-hand text-xs font-bold text-[#6a524a]">Your Name</label>
                     <input
@@ -171,10 +185,10 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
 
       </div>
 
-      <div className="flex items-center justify-start pt-3 lg:pt-1 border-t border-[#3f2a1e]/15 shrink-0">
+      <div className="flex items-center justify-start pt-1 border-t border-[#3f2a1e]/15 shrink-0">
         <button
           onClick={() => onNavigate('home')}
-          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-base font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
+          className="flex items-center gap-1 px-3.5 py-1 rounded-full bg-[#ede0ca] hover:bg-[#d9cca8] text-[#1a110e] font-hand text-sm font-bold border border-[#3f2a1e] transition-transform hover:scale-105"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Cover
         </button>
