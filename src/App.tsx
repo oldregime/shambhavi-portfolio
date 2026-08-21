@@ -1,41 +1,35 @@
-import React from 'react';
-import { DataStreamsCanvas } from './components/DataStreamsCanvas';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { StatsCounter } from './components/StatsCounter';
-import { InteractiveTerminal } from './components/InteractiveTerminal';
-import { ProjectsShowcase } from './components/ProjectsShowcase';
-import { ExperienceTimeline } from './components/ExperienceTimeline';
-import { LeetCode100Days } from './components/LeetCode100Days';
-import { CertificationsGrid } from './components/CertificationsGrid';
-import { SkillsCloud } from './components/SkillsCloud';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
+import React, { useState } from 'react';
+import { SketchbookNav } from './components/SketchbookNav';
+import { DoodleCanvas } from './components/DoodleCanvas';
+import { SketchHero } from './components/SketchHero';
+import { SketchProjects } from './components/SketchProjects';
+import { SketchExperience } from './components/SketchExperience';
+import { SketchLeetCode } from './components/SketchLeetCode';
+import { SketchSkills } from './components/SketchSkills';
+import { SketchContact } from './components/SketchContact';
+import { SketchFooter } from './components/SketchFooter';
 
 export const App: React.FC = () => {
+  const [activeSection, setActiveSection] = useState('home');
+
   return (
-    <div className="relative min-h-screen bg-[#050811] text-slate-100">
-      {/* Background Interactive Data Canvas */}
-      <DataStreamsCanvas />
+    <div className="relative min-h-screen bg-[#fcf8f2] text-[#2b1f1d]">
+      {/* Interactive Mascot & Ambient Doodles */}
+      <DoodleCanvas />
 
-      {/* Glassmorphism Header */}
-      <Navbar />
+      {/* Left Spiral Binding & Hand-Drawn Tabs */}
+      <SketchbookNav activeSection={activeSection} setActiveSection={setActiveSection} />
 
-      {/* Main Content Sections */}
-      <main className="relative z-10 space-y-4">
-        <Hero />
-        <StatsCounter />
-        <ProjectsShowcase />
-        <ExperienceTimeline />
-        <InteractiveTerminal />
-        <LeetCode100Days />
-        <CertificationsGrid />
-        <SkillsCloud />
-        <ContactSection />
+      {/* Main Notebook Pages with Left Margin for Rings on Desktop */}
+      <main className="md:pl-36 transition-all duration-300">
+        <SketchHero />
+        <SketchProjects />
+        <SketchExperience />
+        <SketchLeetCode />
+        <SketchSkills />
+        <SketchContact />
+        <SketchFooter />
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

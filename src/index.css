@@ -3,27 +3,67 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
   }
   
   body {
-    background-color: #050811;
-    color: #f1f5f9;
+    background-color: #fcf8f2;
+    color: #2b1f1d;
+    background-image: radial-gradient(#e5d8c3 0.75px, transparent 0.75px);
+    background-size: 24px 24px;
     overflow-x: hidden;
   }
 
-  /* Custom scrollbar */
+  /* Custom subtle scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #030712;
+    background: #f5ebd9;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #cbb89d;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #06b6d4;
+    background: #9a6539;
   }
+}
+
+.sketch-border {
+  border: 2px solid #3f2a1e;
+  filter: url(#sketch-wobble);
+}
+
+.sketch-border-strong {
+  border: 2.5px solid #3f2a1e;
+  filter: url(#sketch-wobble-strong);
+}
+
+.font-hand {
+  font-family: 'Caveat', cursive;
+}
+
+.font-marker {
+  font-family: 'Kalam', cursive;
+}
+
+.font-sketch {
+  font-family: 'Patrick Hand', cursive;
+}
+
+.tape {
+  background: rgba(245, 234, 217, 0.75);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  backdrop-filter: blur(2px);
+  border: 1px dashed rgba(63, 42, 30, 0.2);
+}
+
+.notebook-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    #e8dcc8 31px,
+    #e8dcc8 32px
+  );
+  line-height: 32px;
 }

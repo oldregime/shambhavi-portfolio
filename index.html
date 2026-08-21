@@ -1,23 +1,32 @@
 <!doctype html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shambhavi Jha | Data Engineer, Cloud & AI Specialist</title>
-    <meta name="description" content="Portfolio of Shambhavi Jha - Data Engineer, Cloud & AI Specialist. Specialized in Python, SQL, AWS, LLMs, Healthcare Analytics, and Scalable Cloud Infrastructure." />
+    <title>Shambhavi Jha | The Data Sketchbook</title>
+    <meta name="description" content="A data engineering portfolio disguised as a sketchbook. Hand-drawn pages, interactive pipelines, and cloud blueprints." />
     
-    <!-- Open Graph / Meta -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Shambhavi Jha | Data Engineer, Cloud & AI Specialist" />
-    <meta property="og:description" content="Turning complex data into actionable intelligence with Python, SQL, AWS, and Generative AI." />
-    
-    <!-- Google Fonts -->
+    <!-- Google Fonts for Sketchbook Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[#050811] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black min-h-screen overflow-x-hidden">
+  <body class="bg-[#fcf8f2] text-[#2c221e] font-sans antialiased selection:bg-[#ffe3a8] selection:text-[#2c221e] min-h-screen overflow-x-hidden">
+    <!-- SVG Filters for Hand-Drawn Wobble & Pencil Texture -->
+    <svg aria-hidden="true" width="0" height="0" style="position:absolute;pointer-events:none">
+      <defs>
+        <filter id="sketch-wobble" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" />
+          <feDisplacementMap in="SourceGraphic" scale="2.2" />
+        </filter>
+        <filter id="sketch-wobble-strong" x="-8%" y="-8%" width="116%" height="116%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" seed="7" />
+          <feDisplacementMap in="SourceGraphic" scale="4" />
+        </filter>
+      </defs>
+    </svg>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
