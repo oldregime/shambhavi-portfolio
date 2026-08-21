@@ -7,25 +7,56 @@
   
   body {
     background-color: #fcf8f2;
-    color: #2b1f1d;
-    background-image: radial-gradient(#e5d8c3 0.75px, transparent 0.75px);
-    background-size: 24px 24px;
+    color: #1f1614;
+    background-image: radial-gradient(#dfd1bc 0.8px, transparent 0.8px);
+    background-size: 26px 26px;
     overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
-  /* Custom subtle scrollbar */
+  /* Custom smooth scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 9px;
   }
   ::-webkit-scrollbar-track {
     background: #f5ebd9;
   }
   ::-webkit-scrollbar-thumb {
-    background: #cbb89d;
-    border-radius: 4px;
+    background: #c2ad91;
+    border-radius: 5px;
+    border: 2px solid #f5ebd9;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #9a6539;
+    background: #8b552d;
+  }
+}
+
+/* 3D Page Turn Animation */
+.notebook-container {
+  perspective: 2000px;
+}
+
+.page-3d-active {
+  transform-origin: left center;
+  animation: pageTurnIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  backface-visibility: hidden;
+}
+
+@keyframes pageTurnIn {
+  0% {
+    opacity: 0;
+    transform: rotateY(-80deg) scale(0.97);
+    filter: drop-shadow(-15px 10px 20px rgba(0,0,0,0.18));
+  }
+  70% {
+    opacity: 0.98;
+    transform: rotateY(3deg) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+    filter: drop-shadow(0 10px 25px rgba(63, 42, 30, 0.08));
   }
 }
 
@@ -52,18 +83,18 @@
 }
 
 .tape {
-  background: rgba(245, 234, 217, 0.75);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  background: rgba(245, 234, 217, 0.85);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
   backdrop-filter: blur(2px);
-  border: 1px dashed rgba(63, 42, 30, 0.2);
+  border: 1px dashed rgba(63, 42, 30, 0.25);
 }
 
 .notebook-lines {
   background-image: repeating-linear-gradient(
     transparent,
-    transparent 31px,
-    #e8dcc8 31px,
-    #e8dcc8 32px
+    transparent 35px,
+    #e8dcc8 35px,
+    #e8dcc8 36px
   );
-  line-height: 32px;
+  line-height: 36px;
 }
